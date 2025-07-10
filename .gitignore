@@ -1,0 +1,58 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.build/
+.buildlog/
+.history
+.svn/
+.swiftpm/
+migrate_working_dir/
+
+# IntelliJ related (Flutter .iml files are often here)
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# The .vscode folder contains launch configuration and tasks you configure in
+# VS Code which you may wish to be included in version control, so this line
+# is commented out by default.
+#.vscode/
+
+# ---------------------------------------------------
+# CUSTOM ADDITIONS FOR NODE.JS BACKEND AND MONOREPO STRUCTURE
+# ---------------------------------------------------
+
+# Node.js backend specific ignores
+/backend/node_modules/      # Essential: Don't commit installed packages
+/backend/.env               # CRITICAL: Contains API keys and secrets
+/backend/serviceAccountKey.json # CRITICAL: Firebase Admin credentials
+/backend/npm-debug.log      # npm logs
+
+# ---------------------------------------------------
+
+# Flutter/Dart/Pub related (assuming 'frontend/' is your Flutter folder)
+/frontend/doc/api/
+/frontend/ios/Flutter/.last_build_id
+/frontend/.dart_tool/
+/frontend/.flutter-plugins
+/frontend/.flutter-plugins-dependencies
+/frontend/.pub-cache/
+/frontend/.pub/
+/frontend/build/
+            # Essential: Don't commit compiled Flutter output
+
+# Symbolication related
+app.*.symbols
+
+# Obfuscation related
+app.*.map.json
+
+# Android Studio will place build artifacts here (ensure this path is correct relative to frontend/)
+/frontend/android/app/debug
+/frontend/android/app/profile
+/frontend/android/app/release

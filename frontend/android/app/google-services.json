@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "929575619755",
+    "project_id": "daeufle",
+    "storage_bucket": "daeufle.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:929575619755:android:64aa9d238f5a1d4dc4fbee",
+        "android_client_info": {
+          "package_name": "com.daeufle.daeufle"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_I-n0asE2dIPSOCC5MgLVCncZAAh4h24"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:929575619755:android:2ee7374c8abe9865c4fbee",
+        "android_client_info": {
+          "package_name": "com.example.daeufle"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_I-n0asE2dIPSOCC5MgLVCncZAAh4h24"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
