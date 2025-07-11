@@ -1,29 +1,21 @@
-import 'dart:convert';
-
 import 'package:Daeufle/screens/quiz.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 
 class Home extends StatelessWidget {
   // Use static final for Firebase instances that are globally accessed
   static final FirebaseAuth _auth = FirebaseAuth.instance;
   static final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  // This function now returns a Stream of user data (Map<String, dynamic>?)
-  // The '?' indicates that the map itself can be null if the document doesn't exist.
   Stream<Map<String, dynamic>?> getUserDataStream() {
-    User? currentUser = _auth.currentUser; // Get the current Firebase Auth user
+    User? currentUser = _auth.currentUser;
 
-    // If no user is signed in, return a stream that immediately emits null.
-    // This prevents trying to fetch from Firestore with a null UID.
     if (currentUser == null) {
       print('No user is currently signed in. Returning null stream.');
       return Stream.value(null);
     }
 
-    // Get a reference to the specific user's document in the 'users' collection
     final userDocRef = _firestore.collection("users").doc(currentUser.uid);
 
     return userDocRef.snapshots().map((snapshot) {
@@ -40,7 +32,6 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Get the current Firebase Auth user details (available immediately after login)
     final User? authUser = _auth.currentUser;
 
     return Scaffold(
@@ -48,12 +39,7 @@ class Home extends StatelessWidget {
         leading: const Icon(Icons.home),
         title: LoadUserData(),
         actions: [
-          IconButton(
-            icon: const Icon(Icons.settings),
-            onPressed: () {
-              // Handle settings button press
-            },
-          ),
+          IconButton(icon: const Icon(Icons.settings), onPressed: () {}),
 
           // Example: Sign out button add later
         ],
@@ -71,7 +57,7 @@ class Home extends StatelessWidget {
         child: Column(
           children: [
             Text(
-              "სანამ კურსებზე გადავიდოდეთ მოდი ჯერ გავიაროთ კარიერული ტესტი",
+              "Before we move on to the courses, let's first take a career test",
               style: TextStyle(fontSize: 20),
             ),
             SizedBox(height: 20),
@@ -81,7 +67,7 @@ class Home extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => QuizScreen()),
                 );
               },
-              child: Text("ტესტის დაწეყება"),
+              child: Text("Start Test"),
             ),
           ],
         ),

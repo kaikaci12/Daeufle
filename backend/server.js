@@ -11,7 +11,7 @@ port = 3000;
 app.get("/", async (req, res) => {
   const snapshot = await db.collection("questions").get();
   const question1 = snapshot.docs[0];
-  console.log(question1.data());
+
   res.json({
     content: question1.data().questionText,
     date: Date.now().toString(),

@@ -1,10 +1,16 @@
+import 'dart:convert'; // For jsonEncode and jsonDecode
+
 import 'package:Daeufle/constants/colors.dart';
+import 'package:Daeufle/screens/courses.dart'; // Assuming this import is correct
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import "package:http/http.dart"
+    as http; // Make sure http package is in pubspec.yaml
 
 class AnalyzeResults extends StatefulWidget {
   final List<Map<String, String>> selectedAnswers;
-  AnalyzeResults({required this.selectedAnswers});
+
+  const AnalyzeResults({super.key, required this.selectedAnswers});
 
   @override
   State<AnalyzeResults> createState() => _AnalyzeResultsState();
@@ -13,11 +19,44 @@ class AnalyzeResults extends StatefulWidget {
 class _AnalyzeResultsState extends State<AnalyzeResults>
     with TickerProviderStateMixin {
   late final AnimationController _controller;
+  late Future<Map<String, dynamic>>
+  _resultsFuture; // Changed to non-nullable Future
 
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(vsync: this);
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 3),
+    );
+    _controller.repeat();
+
+    _resultsFuture = _sendAnswersToBackend(); // Initialize the future once
+  }
+
+  Future<Map<String, dynamic>> _sendAnswersToBackend() async {
+    try {
+      final Uri apiUrl = Uri.parse(
+        'https://dart.dev/f/packages/http.json',
+      ); // Example backend URL
+      final response = await http.post(
+        apiUrl,
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: jsonEncode(widget.selectedAnswers),
+      );
+
+      if (response.statusCode == 200) {
+        return jsonDecode(response.body) as Map<String, dynamic>;
+      } else {
+        throw Exception(
+          'Failed to load results from backend: ${response.statusCode} - ${response.body}',
+        );
+      }
+    } catch (e) {
+      throw Exception('Failed to connect to backend or process results: $e');
+    }
   }
 
   @override
@@ -29,31 +68,157 @@ class _AnalyzeResultsState extends State<AnalyzeResults>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(title: const Text("Results Analysis"), centerTitle: true),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(20.0), // Consistent padding
         child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Analyzing Results...',
-                style: TextStyle(fontSize: 30, color: AppColors.purpleAccent),
-              ),
-              SizedBox(height: 40),
-              Lottie.asset(
-                "assets/analyze-animation.json",
-                controller: _controller,
-                onLoaded: (composition) {
-                  _controller..repeat();
-                },
-                width: 200,
-                height: 200,
-                fit: BoxFit.contain,
-              ),
-            ],
+          child: FutureBuilder<Map<String, dynamic>>(
+            // Explicitly define Future type
+            future: _resultsFuture, // Use the initialized future
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Analyzing Results...',
+                      style: TextStyle(
+                        fontSize: 30,
+                        color: AppColors.purpleAccent,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 40),
+                    Lottie.asset(
+                      "assets/analyze-animation.json",
+                      controller: _controller,
+
+                      width: 200,
+                      height: 200,
+                      fit: BoxFit.contain,
+                    ),
+                  ],
+                );
+              } else if (snapshot.hasError) {
+                return Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(
+                      Icons.error_outline,
+                      color: Colors.red,
+                      size: 60,
+                    ),
+                    const SizedBox(height: 20),
+                    Text(
+                      'Error: ${snapshot.error}',
+                      style: const TextStyle(color: Colors.red, fontSize: 18),
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 20),
+                    ElevatedButton(
+                      onPressed: () {
+                        setState(() {
+                          _resultsFuture =
+                              _sendAnswersToBackend(); // Retry the API call
+                        });
+                      },
+                      child: const Text('Retry'),
+                    ),
+                  ],
+                );
+              } else if (snapshot.hasData) {
+                final Map<String, dynamic> data = snapshot.data!;
+                // Assuming backend returns 'suitableCourses' as per backend-code immersive
+                final List<Map<String, dynamic>> coursesData =
+                    (data["suitableCourses"] as List<dynamic>?)
+                        ?.map((e) => e as Map<String, dynamic>)
+                        .toList() ??
+                    [];
+
+                return Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const SummaryLogo(),
+                    const SizedBox(height: 24),
+                    Text(
+                      data["careerRecommendation"] ??
+                          "No recommendation found.",
+                      style: const TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 20),
+                    Text(
+                      data["description"] ??
+                          "No description provided.", // Using 'description' from backend
+                      style: const TextStyle(fontSize: 16),
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 20),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.of(context).pushReplacement(
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                Courses(coursesData: coursesData),
+                          ),
+                        );
+                      },
+                      child: const Text('See Recommended Courses'),
+                    ),
+                  ],
+                );
+              } else {
+                return const Center(child: Text('No results to display.'));
+              }
+            },
           ),
         ),
+      ),
+    );
+  }
+}
+
+class SummaryLogo extends StatelessWidget {
+  const SummaryLogo({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        gradient: LinearGradient(
+          colors: [
+            AppColors.purpleAccent,
+            Colors.blueAccent,
+            Colors.cyanAccent,
+          ],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: AppColors.purpleAccent.withOpacity(0.4),
+            blurRadius: 20,
+            spreadRadius: 5,
+            offset: const Offset(0, 8),
+          ),
+        ],
+      ),
+      padding: const EdgeInsets.all(24),
+      child: Icon(
+        Icons.auto_awesome,
+        color: Colors.white,
+        size: 64,
+        shadows: [
+          Shadow(
+            blurRadius: 16,
+            color: Colors.blueAccent.withOpacity(0.5),
+            offset: const Offset(0, 4),
+          ),
+        ],
       ),
     );
   }
