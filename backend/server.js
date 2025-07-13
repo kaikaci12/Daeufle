@@ -2,12 +2,23 @@ require("dotenv").config();
 
 const cors = require("cors"); // Import cors package
 
+const serviceAccountCredentials =
+  process.env.FIREBASE_SERVICE_ACCOUNT_CREDENTIALS;
+
+if (!serviceAccountCredentials) {
+  console.error(
+    "CRITICAL ERROR: FIREBASE_SERVICE_ACCOUNT_CREDENTIALS environment variable not set."
+  );
+  process.exit(1);
+}
+
 let serviceAccount;
 try {
-  serviceAccount = require("./serviceAccountKey.json");
+  // Parse the JSON string from the environment variable
+  serviceAccount = JSON.parse(serviceAccountCredentials);
 } catch (error) {
   console.error(
-    `CRITICAL ERROR: Could not load service account key from . Please check the path and file existence.`,
+    `CRITICAL ERROR: Could not parse service account credentials from environment variable. Please check its format.`,
     error
   );
   process.exit(1);
