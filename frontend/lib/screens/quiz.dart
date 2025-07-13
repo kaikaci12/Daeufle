@@ -140,7 +140,21 @@ class _QuizScreenState extends State<QuizScreen> {
         : null;
 
     return Scaffold(
-      appBar: AppBar(title: const Text("Career Quiz"), centerTitle: true),
+      appBar: AppBar(
+        title: const Text("Career Quiz"),
+        centerTitle: true,
+        leading: Row(
+          children: [
+            IconButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              icon: Icon(Icons.arrow_back),
+            ),
+            Image.asset("assets/images/tbc-logo.png"),
+          ],
+        ),
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
@@ -157,7 +171,7 @@ class _QuizScreenState extends State<QuizScreen> {
               : _questions.isEmpty
               ? const Center(
                   child: Text(
-                    "კითხვები არ მოიძებნა.",
+                    "No questions found",
                     style: TextStyle(fontSize: 18, color: Colors.grey),
                   ),
                 )

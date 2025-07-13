@@ -1,4 +1,6 @@
 import 'package:Daeufle/screens/quiz.dart';
+import 'package:Daeufle/screens/welcome.dart';
+import 'package:Daeufle/services/auth_manager.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +9,7 @@ class Home extends StatelessWidget {
   // Use static final for Firebase instances that are globally accessed
   static final FirebaseAuth _auth = FirebaseAuth.instance;
   static final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-
+  final AuthManager _authManager = AuthManager();
   Stream<Map<String, dynamic>?> getUserDataStream() {
     User? currentUser = _auth.currentUser;
 
@@ -36,12 +38,46 @@ class Home extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        leading: const Icon(Icons.home),
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) {
+                  return Home();
+                },
+              ),
+            );
+          },
+          child: Image.asset("assets/images/tbc-logo.png"),
+        ),
+
         title: LoadUserData(),
         actions: [
-          IconButton(icon: const Icon(Icons.settings), onPressed: () {}),
+          Row(
+            children: [
+              Text("Sign Out"),
+              SizedBox(width: 20),
+              IconButton(
+                icon: Icon(Icons.logout),
 
-          // Example: Sign out button add later
+                onPressed: () async {
+                  String? error = await _authManager.signOut();
+                  if (error == null) {
+                    // If sign out is successful, navigate to WelcomePage
+                    Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute(builder: (context) => WelcomePage()),
+                      (Route<dynamic> route) => false, // Clear navigation stack
+                    );
+                  } else {
+                    // Show an error message if sign out failed
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text('Sign out failed: $error')),
+                    );
+                  }
+                },
+              ),
+            ],
+          ),
         ],
       ),
       endDrawer: const Drawer(
@@ -63,9 +99,9 @@ class Home extends StatelessWidget {
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (context) => QuizScreen()),
-                );
+                Navigator.of(
+                  context,
+                ).push(MaterialPageRoute(builder: (context) => QuizScreen()));
               },
               child: Text("Start Test"),
             ),

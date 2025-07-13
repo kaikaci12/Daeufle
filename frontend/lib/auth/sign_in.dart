@@ -2,12 +2,14 @@
 import 'dart:math';
 
 import 'package:Daeufle/constants/colors.dart'; // Adjust import path if 'colors.dart' is in a different place
+import 'package:Daeufle/main.dart';
 import 'package:Daeufle/screens/home.dart';
 import 'package:Daeufle/services/auth_manager.dart';
 import 'package:Daeufle/widgets/custom_text_field.dart'; // Import your custom text field
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -40,7 +42,7 @@ class _SignInScreenState extends State<SignInScreen> {
       );
       Navigator.of(
         context,
-      ).pushReplacement(MaterialPageRoute(builder: (context) => Home()));
+      ).pushReplacement(MaterialPageRoute(builder: (_) => AuthWrapper()));
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(error), backgroundColor: Colors.red),

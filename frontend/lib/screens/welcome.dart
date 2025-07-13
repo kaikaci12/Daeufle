@@ -27,6 +27,12 @@ class WelcomePage extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
+                        Image.asset(
+                          "assets/images/tbc-logo.png",
+                          width: 100,
+                          height: 100,
+                        ),
+                        SizedBox(height: 30),
                         Text(
                           'Welcome To',
                           style: TextStyle(

@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthManager {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -22,21 +23,19 @@ class AuthManager {
           "createdAt": FieldValue.serverTimestamp(),
         });
       }
-      // After successful signup, send email verification
+
       await user!.sendEmailVerification();
 
-      return null; // No error
+      return null;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         return 'The password provided is too weak.';
       } else if (e.code == 'email-already-in-use') {
         return 'An account already exists for that email.';
       } else {
-        // Return a generic error message for other FirebaseAuthException codes
         return e.message ?? 'An unknown error occurred during sign up.';
       }
     } catch (e) {
-      // Catch any other unexpected errors
       return e.toString();
     }
   }
@@ -51,20 +50,19 @@ class AuthManager {
         password: password,
       );
 
-      // Reload the user to ensure the latest email verification status is fetched
       await userCredential.user!.reload();
-      User? user = _auth.currentUser; // Get the reloaded user
+      User? user = _auth.currentUser;
 
-      print(user!.emailVerified); // For debugging
+      print(user!.emailVerified);
 
       if (!user.emailVerified) {
         return "Please verify your email address to log in. A verification email has been sent.";
       }
 
-      return null; // Sign in successful and email is verified, no error
+      return null;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
-        return 'No user found for that email.'; // Explicitly return for user-not-found
+        return 'No user found for that email.';
       } else if (e.code == 'wrong-password') {
         return 'Wrong password provided for that user.';
       } else if (e.code == 'invalid-email') {
@@ -72,11 +70,21 @@ class AuthManager {
       } else if (e.code == 'user-disabled') {
         return 'This user account has been disabled.';
       } else {
-        // Return a generic error message for other FirebaseAuthException codes
         return e.message ?? 'An unknown error occurred during sign in.';
       }
     } catch (e) {
-      // Catch any other unexpected errors
+      return e.toString();
+    }
+  }
+
+  Future<String?> signOut() async {
+    try {
+      await _auth.signOut();
+
+      return null; // Sign out successful
+    } on FirebaseAuthException catch (e) {
+      return e.message ?? 'An unknown error occurred during sign out.';
+    } catch (e) {
       return e.toString();
     }
   }

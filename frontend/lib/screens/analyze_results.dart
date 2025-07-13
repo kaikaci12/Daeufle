@@ -2,6 +2,7 @@ import 'dart:convert'; // For jsonEncode and jsonDecode
 
 import 'package:Daeufle/constants/colors.dart';
 import 'package:Daeufle/screens/courses.dart'; // Assuming this import is correct
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import "package:http/http.dart"
@@ -39,10 +40,21 @@ class _AnalyzeResultsState extends State<AnalyzeResults>
       final Uri apiUrl = Uri.parse(
         'http://localhost:5000/api/quiz/analyze',
       ); // Example backend URL
+      final User? user = FirebaseAuth.instance.currentUser;
+      if (user == null) {
+        throw Exception("User not logged in. Cannot analyze quiz results.");
+      }
+      final String? idToken = await user.getIdToken();
+      if (idToken == null) {
+        throw Exception(
+          "Failed to get user ID token. Cannot analyze quiz results.",
+        );
+      }
       final response = await http.post(
         apiUrl,
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
+          'Authorization': 'Bearer $idToken',
         },
         body: jsonEncode(widget.selectedAnswers),
       );
@@ -68,7 +80,11 @@ class _AnalyzeResultsState extends State<AnalyzeResults>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Results Analysis"), centerTitle: true),
+      appBar: AppBar(
+        title: const Text("Results AI Analysis"),
+        centerTitle: true,
+        leading: Image.asset("assets/images/tbc-logo.png"),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(20.0), // Consistent padding
         child: Center(
@@ -128,21 +144,27 @@ class _AnalyzeResultsState extends State<AnalyzeResults>
                 );
               } else if (snapshot.hasData) {
                 final Map<String, dynamic> data = snapshot.data!;
-                // Assuming backend returns 'suitableCourses' as per backend-code immersive
+
+                print(data["suitableCourses"]);
+
                 final List<Map<String, dynamic>> coursesData =
                     (data["suitableCourses"] as List<dynamic>?)
                         ?.map((e) => e as Map<String, dynamic>)
                         .toList() ??
                     [];
 
+                final String careerRecommendationText =
+                    (data["careerRecommendation"] is String)
+                    ? data["careerRecommendation"] as String
+                    : (data["careerRecommendation"]?.toString() ??
+                          "No career recommendation found.");
                 return Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const SummaryLogo(),
                     const SizedBox(height: 24),
                     Text(
-                      data["careerRecommendation"] ??
-                          "No recommendation found.",
+                      careerRecommendationText,
                       style: const TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
@@ -150,19 +172,16 @@ class _AnalyzeResultsState extends State<AnalyzeResults>
                       textAlign: TextAlign.center,
                     ),
                     const SizedBox(height: 20),
-                    Text(
-                      data["description"] ??
-                          "No description provided.", // Using 'description' from backend
-                      style: const TextStyle(fontSize: 16),
-                      textAlign: TextAlign.center,
-                    ),
+                    Text(data["professionIds"] ?? "no profession ids"),
                     const SizedBox(height: 20),
                     ElevatedButton(
                       onPressed: () {
                         Navigator.of(context).pushReplacement(
                           MaterialPageRoute(
-                            builder: (context) =>
-                                Courses(coursesData: coursesData),
+                            builder: (context) => Courses(
+                              coursesData: coursesData,
+                              careerRecommendation: careerRecommendationText,
+                            ),
                           ),
                         );
                       },

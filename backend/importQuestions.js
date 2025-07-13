@@ -1,5 +1,5 @@
 const allQuestions = require("./questions.json");
-
+const allCourses = require("./courses.json");
 const serviceAccount = require("./serviceAccountKey.json");
 
 const admin = require("firebase-admin");
@@ -22,4 +22,17 @@ async function uploadQuestions() {
     }
   }
 }
-uploadQuestions();
+async function uploadCourses() {
+  console.log("Starting To upload courses....");
+  for (const course of allCourses) {
+    try {
+      const newDocRef = db.collection("courses").doc();
+      const generatedId = newDocRef.id;
+      await newDocRef.set(course);
+      console.log(`Successfully added course with ID: ${generatedId}`);
+    } catch (error) {
+      console.error("Error uploading a course: ", error);
+    }
+  }
+}
+uploadCourses();
