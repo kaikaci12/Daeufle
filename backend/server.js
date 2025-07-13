@@ -11,7 +11,7 @@ if (!serviceAccountCredentials) {
   );
   process.exit(1);
 }
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 5000;
 let serviceAccount;
 try {
   // Parse the JSON string from the environment variable
