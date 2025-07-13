@@ -11,7 +11,7 @@ if (!serviceAccountCredentials) {
   );
   process.exit(1);
 }
-
+const PORT = process.env.PORT || 5000
 let serviceAccount;
 try {
   // Parse the JSON string from the environment variable
@@ -201,6 +201,6 @@ app.post("/api/quiz/analyze", verifyFirebaseToken, async (req, res) => {
   }
 });
 
-app.listen(5000, () => {
-  console.log("app is listening on port", 5000);
+app.listen(PORT, () => {
+  console.log("app is listening on port", PORT);
 });
