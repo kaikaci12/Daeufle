@@ -1,743 +1,735 @@
 [
   {
-    "questionText": "როგორ გირჩევნიათ მიუდგეთ კომპლექსურ პრობლემებს?",
-    "order": 0,
+    "questionText": "What is your preferred approach to solving complex problems?",
     "options": [
       {
-        "text": "სისტემატურად დაშალეთ ისინი პატარა ნაწილებად.",
+        "text": "Systematically break them down into smaller parts.",
         "order": 0,
         "value": 3,
-        "id": "opt_systematic"
+        "id": "opt_sys_breakdown"
       },
       {
-        "text": "მოიფიქრეთ კრეატიული და არატრადიციული გადაწყვეტილებები.",
+        "text": "Brainstorm creative and unconventional solutions.",
+        "order": 1,
         "value": 2,
-        "id": "opt_creative"
+        "id": "opt_brainstorm"
       },
       {
-        "text": "ითანამშრომლეთ სხვებთან გამოსავლის მოსაძებნად.",
+        "text": "Collaborate with others to find a solution.",
+        "order": 2,
         "value": 1,
-        "id": "opt_collaborate"
+        "id": "opt_collaborate_prob"
       },
       {
-        "text": "პრობლემის დელეგირება სხვას.",
+        "text": "Delegate the problem to someone else.",
+        "order": 3,
         "value": 0,
-        "id": "opt_delegate"
+        "id": "opt_delegate_prob"
       }
     ],
     "careerImpacts": {
-      "software_engineer": 1.5,
-      "data_scientist": 1.8,
-      "project_manager": 0.8,
-      "ux_designer": 0.5,
-      "philologist": 0.2,
-      "marketing_specialist": 0.7,
-      "teacher": 0.5,
-      "artist": 0.1,
-      "freelance_developer": 1.2
-    }
+      "analytical": 0.8,
+      "problem_solving": 0.7,
+      "creativity": 0.4,
+      "teamwork": 0.3,
+      "leadership": 0.2
+    },
+    "order": 0
   },
   {
-    "order": 1,
-    "questionText": "გირჩევნიათ გუნდში მუშაობა თუ დამოუკიდებლად?",
+    "questionText": "Which work environment do you thrive in the most?",
     "options": [
       {
-        "text": "მკაცრად მირჩევნია გუნდში მუშაობა.",
+        "text": "A quiet, independent space where I can focus deeply.",
+        "order": 0,
         "value": 3,
-        "id": "team_strong"
+        "id": "opt_quiet_independent"
       },
       {
-        "text": "მირჩევნია გუნდში, მაგრამ შემიძლია დამოუკიდებლადაც მუშაობა.",
+        "text": "A dynamic, fast-paced environment with constant new challenges.",
+        "order": 1,
         "value": 2,
-        "id": "team_moderate"
+        "id": "opt_dynamic_fast"
       },
       {
-        "text": "მირჩევნია დამოუკიდებლად, მაგრამ შემიძლია თანამშრომლობა.",
+        "text": "A collaborative team setting with regular interaction.",
+        "order": 2,
         "value": 1,
-        "id": "individual_moderate"
+        "id": "opt_collaborative_team"
       },
       {
-        "text": "მკაცრად მირჩევნია დამოუკიდებლად მუშაობა.",
+        "text": "A structured, predictable environment with clear guidelines.",
+        "order": 3,
         "value": 0,
-        "id": "individual_strong"
+        "id": "opt_structured_predictable"
       }
     ],
     "careerImpacts": {
-      "software_engineer": 1.0,
-      "data_scientist": 0.8,
-      "project_manager": 2.0,
-      "ux_designer": 1.5,
-      "philologist": 0.3,
-      "marketing_specialist": 1.2,
-      "teacher": 1.0,
-      "artist": 0.5,
-      "freelance_developer": -1.5
-    }
+      "autonomy": 0.7,
+      "adaptability": 0.6,
+      "teamwork": 0.8,
+      "stability": 0.5,
+      "innovation": 0.4
+    },
+    "order": 1
   },
   {
-    "order": 2,
-    "questionText": "როგორ გრძნობთ თავს დიდი რაოდენობით მონაცემებთან მუშაობისას?",
+    "questionText": "What motivates you most in a job?",
     "options": [
       {
-        "text": "მიყვარს მონაცემების ანალიზი და მათგან დასკვნების გამოტანა.",
+        "text": "Achieving challenging goals and seeing tangible results.",
+        "order": 0,
         "value": 3,
-        "id": "data_love"
+        "id": "opt_achieve_goals"
       },
       {
-        "text": "მომწონს, როცა საჭიროა, მაგრამ ჩემი მთავარი საქმე არ არის.",
+        "text": "Learning new skills and expanding my knowledge.",
+        "order": 1,
         "value": 2,
-        "id": "data_ok"
+        "id": "opt_learn_skills"
       },
       {
-        "text": "მირჩევნია სხვამ გააკეთოს მონაცემთა ანალიზი.",
+        "text": "Helping others and making a positive impact on society.",
+        "order": 2,
         "value": 1,
-        "id": "data_avoid"
+        "id": "opt_help_others"
       },
       {
-        "text": "მონაცემები მაღიზიანებს და მირჩევნია მათგან თავი შორს დავიჭირო.",
+        "text": "Receiving recognition and advancement opportunities.",
+        "order": 3,
         "value": 0,
-        "id": "data_hate"
+        "id": "opt_recognition"
       }
     ],
     "careerImpacts": {
-      "software_engineer": 1.0,
-      "data_scientist": 2.5,
-      "project_manager": 0.7,
-      "ux_designer": 0.5,
-      "philologist": 0.1,
-      "marketing_specialist": 1.5,
-      "teacher": 0.5,
-      "artist": 0.0,
-      "freelance_developer": 0.8
-    }
+      "drive": 0.8,
+      "growth_mindset": 0.7,
+      "social_impact": 0.9,
+      "ambition": 0.6,
+      "personal_development": 0.7
+    },
+    "order": 2
   },
   {
-    "order": 3,
-    "questionText": "რამდენად მნიშვნელოვანია თქვენთვის კრეატიულობა და ინოვაცია სამსახურში?",
+    "questionText": "Which of these best describes your primary strength?",
     "options": [
       {
-        "text": "ძალიან მნიშვნელოვანია, მუდმივად ვეძებ ახალ გზებს.",
+        "text": "Analyzing data and identifying patterns.",
+        "order": 0,
         "value": 3,
-        "id": "creative_high"
+        "id": "opt_analyze_data"
       },
       {
-        "text": "მნიშვნელოვანია, მომწონს ახალი იდეების გენერირება.",
+        "text": "Communicating complex ideas clearly and persuasively.",
+        "order": 1,
         "value": 2,
-        "id": "creative_medium"
+        "id": "opt_communicate_ideas"
       },
       {
-        "text": "ნაკლებად მნიშვნელოვანია, მირჩევნია დადგენილი პროცესებით ვიმუშაო.",
+        "text": "Organizing and managing projects efficiently.",
+        "order": 2,
         "value": 1,
-        "id": "creative_low"
+        "id": "opt_organize_manage"
       },
       {
-        "text": "არ არის მნიშვნელოვანი, მკაცრი წესები მირჩევნია.",
+        "text": "Innovating and developing new concepts.",
+        "order": 3,
         "value": 0,
-        "id": "creative_none"
+        "id": "opt_innovate_develop"
       }
     ],
     "careerImpacts": {
-      "software_engineer": 1.2,
-      "data_scientist": 1.0,
-      "project_manager": 0.8,
-      "ux_designer": 2.5,
-      "philologist": 0.5,
-      "marketing_specialist": 2.0,
-      "teacher": 1.0,
-      "artist": 3.0,
-      "freelance_developer": 1.5
-    }
+      "analytical": 0.9,
+      "communication": 0.8,
+      "organization": 0.7,
+      "creativity": 0.7,
+      "leadership": 0.5
+    },
+    "order": 3
   },
   {
-    "order": 4,
-    "questionText": "რამდენად გსიამოვნებთ სხვა ადამიანებთან ურთიერთობა სამსახურში?",
+    "questionText": "How do you typically make important decisions?",
     "options": [
       {
-        "text": "მიყვარს მუდმივი კომუნიკაცია და სოციალური ინტერაქცია.",
+        "text": "Based on logical analysis and available facts.",
+        "order": 0,
         "value": 3,
-        "id": "social_high"
+        "id": "opt_logical_analysis"
       },
       {
-        "text": "მომწონს ხალხთან ურთიერთობა, მაგრამ მჭირდება დრო მარტო მუშაობისთვის.",
+        "text": "By trusting my intuition and gut feeling.",
+        "order": 1,
         "value": 2,
-        "id": "social_medium"
+        "id": "opt_intuition"
       },
       {
-        "text": "მირჩევნია ნაკლები ინტერაქცია მქონდეს ხალხთან, თუ აუცილებელი არ არის.",
+        "text": "By consulting with trusted advisors and experts.",
+        "order": 2,
         "value": 1,
-        "id": "social_low"
+        "id": "opt_consult_advisors"
       },
       {
-        "text": "მირჩევნია მინიმალური ადამიანური ურთიერთობა.",
+        "text": "By weighing all possible outcomes and risks carefully.",
+        "order": 3,
         "value": 0,
-        "id": "social_none"
+        "id": "opt_weigh_outcomes"
       }
     ],
     "careerImpacts": {
-      "software_engineer": 1.0,
-      "data_scientist": 0.7,
-      "project_manager": 2.5,
-      "ux_designer": 2.0,
-      "philologist": 0.5,
-      "marketing_specialist": 2.2,
-      "teacher": 2.5,
-      "artist": 0.5,
-      "freelance_developer": 0.8
-    }
+      "rationality": 0.8,
+      "risk_assessment": 0.7,
+      "collaboration": 0.5,
+      "decisiveness": 0.6,
+      "strategic_thinking": 0.7
+    },
+    "order": 4
   },
   {
-    "order": 5,
-    "questionText": "რომელი გარემო გირჩევნიათ სამსახურში: მკაცრად სტრუქტურირებული თუ მოქნილი?",
+    "questionText": "How do you prefer to learn new things?",
     "options": [
       {
-        "text": "მკაცრად სტრუქტურირებული პროცესები და მკაფიო მითითებები.",
+        "text": "Through hands-on experience and practical application.",
+        "order": 0,
         "value": 3,
-        "id": "structure_high"
+        "id": "opt_hands_on"
       },
       {
-        "text": "სტრუქტურა მომწონს, მაგრამ ცოტა მოქნილობაც კარგია.",
+        "text": "By reading books and articles, and attending lectures.",
+        "order": 1,
         "value": 2,
-        "id": "structure_medium"
+        "id": "opt_reading_lectures"
       },
       {
-        "text": "მირჩევნია მოქნილი გარემო და ბევრი ავტონომია.",
+        "text": "By observing and imitating experts.",
+        "order": 2,
         "value": 1,
-        "id": "flexible_medium"
+        "id": "opt_observe_imitate"
       },
       {
-        "text": "მკაცრად მოქნილი, სადაც შემიძლია თავად დავგეგმო ჩემი დრო და ამოცანები.",
+        "text": "Through trial and error, experimenting on my own.",
+        "order": 3,
         "value": 0,
-        "id": "flexible_high"
+        "id": "opt_trial_error"
       }
     ],
     "careerImpacts": {
-      "software_engineer": 1.5,
-      "data_scientist": 1.2,
-      "project_manager": 1.8,
-      "ux_designer": 1.0,
-      "philologist": 1.0,
-      "marketing_specialist": 0.8,
-      "teacher": 1.5,
-      "artist": 0.5,
-      "freelance_developer": -1.0
-    }
+      "practicality": 0.8,
+      "academic_aptitude": 0.7,
+      "observational_skills": 0.6,
+      "experimentation": 0.7,
+      "self_learning": 0.6
+    },
+    "order": 5
   },
   {
-    "order": 6,
-    "questionText": "რამდენად ხართ ორიენტირებული დეტალებზე?",
+    "questionText": "How much social interaction do you prefer in your daily work?",
     "options": [
       {
-        "text": "უდიდეს ყურადღებას ვაქცევ დეტალებს, შეცდომები მიუღებელია.",
+        "text": "Minimal, I prefer to work independently.",
+        "order": 0,
         "value": 3,
-        "id": "detail_high"
+        "id": "opt_minimal_social"
       },
       {
-        "text": "ვცდილობ ყურადღება მივაქციო, მაგრამ ზოგჯერ დიდი სურათი უფრო მნიშვნელოვანია.",
+        "text": "Moderate, a mix of independent and team work.",
+        "order": 1,
         "value": 2,
-        "id": "detail_medium"
+        "id": "opt_moderate_social"
       },
       {
-        "text": "ვხედავ დეტალებს, მაგრამ მირჩევნია ფოკუსირება დიდ იდეებზე.",
+        "text": "High, I enjoy constant collaboration and communication.",
+        "order": 2,
         "value": 1,
-        "id": "detail_low"
+        "id": "opt_high_social"
       },
       {
-        "text": "დეტალები მოსაწყენია, მათ თავიდან ვერიდები.",
+        "text": "I prefer to lead and direct others.",
+        "order": 3,
         "value": 0,
-        "id": "detail_none"
+        "id": "opt_lead_social"
       }
     ],
     "careerImpacts": {
-      "software_engineer": 2.0,
-      "data_scientist": 2.2,
-      "project_manager": 1.0,
-      "ux_designer": 1.5,
-      "philologist": 1.8,
-      "marketing_specialist": 0.8,
-      "teacher": 1.2,
-      "artist": 0.5,
-      "freelance_developer": 1.5
-    }
+      "autonomy": 0.7,
+      "teamwork": 0.6,
+      "communication": 0.8,
+      "leadership": 0.7,
+      "introversion": 0.5,
+      "extroversion": 0.5
+    },
+    "order": 6
   },
   {
-    "order": 7,
-    "questionText": "როგორ გრძნობთ თავს ტექნოლოგიური ხელსაწყოების გამოყენებისას პრობლემების გადასაჭრელად?",
+    "questionText": "How comfortable are you with taking risks in your career?",
     "options": [
       {
-        "text": "მიყვარს ახალი ტექნოლოგიების შესწავლა და გამოყენება.",
+        "text": "Very comfortable, I see risks as opportunities for growth.",
+        "order": 0,
         "value": 3,
-        "id": "tech_enthusiast"
+        "id": "opt_very_comfortable_risk"
       },
       {
-        "text": "კომფორტულად ვგრძნობ თავს საჭიროების შემთხვევაში.",
+        "text": "Moderately comfortable, I take calculated risks.",
+        "order": 1,
         "value": 2,
-        "id": "tech_comfortable"
+        "id": "opt_moderately_comfortable_risk"
       },
       {
-        "text": "მხოლოდ მაშინ ვიყენებ, როცა აბსოლუტურად აუცილებელია.",
+        "text": "Not very comfortable, I prefer stability and predictability.",
+        "order": 2,
         "value": 1,
-        "id": "tech_reluctant"
+        "id": "opt_not_comfortable_risk"
       },
       {
-        "text": "ვცდილობ თავი ავარიდო ტექნოლოგიას, თუ შესაძლებელია.",
+        "text": "I avoid risks whenever possible.",
+        "order": 3,
         "value": 0,
-        "id": "tech_avoid"
+        "id": "opt_avoid_risk"
       }
     ],
     "careerImpacts": {
-      "software_engineer": 2.5,
-      "data_scientist": 2.3,
-      "project_manager": 1.0,
-      "ux_designer": 1.5,
-      "philologist": 0.2,
-      "marketing_specialist": 1.0,
-      "teacher": 0.8,
-      "artist": 0.5,
-      "freelance_developer": 2.0
-    }
+      "entrepreneurship": 0.8,
+      "innovation": 0.7,
+      "stability": 0.7,
+      "risk_aversion": 0.6,
+      "adaptability": 0.5
+    },
+    "order": 7
   },
   {
-    "order": 8,
-    "questionText": "რამდენად მოგწონთ ახალი ცოდნის ან უნარების მუდმივი სწავლა?",
+    "questionText": "How do you handle high-pressure or stressful situations?",
     "options": [
       {
-        "text": "მუდმივი სწავლა ჩემი მოტივატორია, მიყვარს გამოწვევები.",
+        "text": "I remain calm and focus on finding solutions.",
+        "order": 0,
         "value": 3,
-        "id": "learn_high"
+        "id": "opt_calm_solutions"
       },
       {
-        "text": "მომწონს ახლის სწავლა, თუ ეს ჩემს კარიერას ეხმარება.",
+        "text": "I seek support from colleagues or supervisors.",
+        "order": 1,
         "value": 2,
-        "id": "learn_medium"
+        "id": "opt_seek_support"
       },
       {
-        "text": "ვისწავლი მხოლოდ მაშინ, თუ აბსოლუტურად აუცილებელია სამსახურისთვის.",
+        "text": "I tend to feel overwhelmed and struggle to perform.",
+        "order": 2,
         "value": 1,
-        "id": "learn_low"
+        "id": "opt_overwhelmed"
       },
       {
-        "text": "ვამჯობინებ ვიმუშაო იმით, რაც უკვე ვიცი.",
+        "text": "I thrive under pressure and perform my best.",
+        "order": 3,
         "value": 0,
-        "id": "learn_none"
+        "id": "opt_thrive_pressure"
       }
     ],
     "careerImpacts": {
-      "software_engineer": 2.0,
-      "data_scientist": 2.0,
-      "project_manager": 1.0,
-      "ux_designer": 1.8,
-      "philologist": 1.5,
-      "marketing_specialist": 1.5,
-      "teacher": 2.0,
-      "artist": 1.5,
-      "freelance_developer": 1.8
-    }
+      "resilience": 0.8,
+      "stress_tolerance": 0.7,
+      "teamwork": 0.5,
+      "emotional_intelligence": 0.6,
+      "adaptability": 0.5
+    },
+    "order": 8
   },
   {
-    "order": 9,
-    "questionText": "რამდენად გსიამოვნებთ პროექტების და ადამიანების მართვა?",
+    "questionText": "How important is it for you to express creativity in your work?",
     "options": [
       {
-        "text": "მიყვარს ლიდერობა, დაგეგმვა და გუნდის წარმართვა.",
+        "text": "Extremely important, it's essential for my job satisfaction.",
+        "order": 0,
         "value": 3,
-        "id": "manage_high"
+        "id": "opt_extremely_creative"
       },
       {
-        "text": "მომწონს მართვის ასპექტები, მაგრამ მირჩევნია უფრო აქტიურ როლში ვიყო.",
+        "text": "Moderately important, I appreciate opportunities for creativity.",
+        "order": 1,
         "value": 2,
-        "id": "manage_medium"
+        "id": "opt_moderately_creative"
       },
       {
-        "text": "მირჩევნია ვინმემ სხვამ მართოს, მე კი ჩემს საქმეს ვაკეთებ.",
+        "text": "Not very important, I prefer structured and defined tasks.",
+        "order": 2,
         "value": 1,
-        "id": "manage_low"
+        "id": "opt_not_creative"
       },
       {
-        "text": "არ მომწონს მართვის პასუხისმგებლობა.",
+        "text": "Not important at all, I focus on efficiency and accuracy.",
+        "order": 3,
         "value": 0,
-        "id": "manage_none"
+        "id": "opt_no_creativity"
       }
     ],
     "careerImpacts": {
-      "software_engineer": 0.8,
-      "data_scientist": 0.7,
-      "project_manager": 3.0,
-      "ux_designer": 1.0,
-      "philologist": 0.5,
-      "marketing_specialist": 1.5,
-      "teacher": 1.8,
-      "artist": 0.3,
-      "freelance_developer": 0.5
-    }
+      "creativity": 0.9,
+      "innovation": 0.8,
+      "artistic_aptitude": 0.7,
+      "structured_thinking": 0.6,
+      "efficiency": 0.5
+    },
+    "order": 9
   },
   {
-    "order": 10,
-    "questionText": "რამდენად მნიშვნელოვანია თქვენთვის, რომ თქვენი ნამუშევარი პირდაპირ გავლენას ახდენდეს ადამიანებზე ან მომხმარებლებზე?",
+    "questionText": "Do you prefer working with data/numbers or people/ideas?",
     "options": [
       {
-        "text": "ჩემი მიზანია დადებითი გავლენა მოვახდინო ადამიანებზე.",
+        "text": "Data and numbers.",
+        "order": 0,
         "value": 3,
-        "id": "impact_high"
+        "id": "opt_data_numbers"
       },
       {
-        "text": "მომწონს, თუ ჩემი ნამუშევარი სასარგებლოა, მაგრამ ეს არ არის მთავარი.",
+        "text": "People and ideas.",
+        "order": 1,
         "value": 2,
-        "id": "impact_medium"
+        "id": "opt_people_ideas"
       },
       {
-        "text": "ჩემი მთავარი ფოკუსი ტექნიკური ან კონცეპტუალური სიზუსტეა.",
+        "text": "A balanced mix of both.",
+        "order": 2,
         "value": 1,
-        "id": "impact_low"
+        "id": "opt_balanced_mix"
       },
       {
-        "text": "არ ვფიქრობ ამაზე, უბრალოდ ჩემს საქმეს ვაკეთებ.",
+        "text": "I prefer working with physical objects or tools.",
+        "order": 3,
         "value": 0,
-        "id": "impact_none"
+        "id": "opt_physical_objects"
       }
     ],
     "careerImpacts": {
-      "software_engineer": 1.2,
-      "data_scientist": 1.0,
-      "project_manager": 2.0,
-      "ux_designer": 2.5,
-      "philologist": 1.0,
-      "marketing_specialist": 2.0,
-      "teacher": 2.5,
-      "artist": 1.5,
-      "freelance_developer": 1.0
-    }
+      "analytical": 0.8,
+      "social_skills": 0.7,
+      "conceptual_thinking": 0.6,
+      "manual_dexterity": 0.5
+    },
+    "order": 10
   },
   {
-    "order": 11,
-    "questionText": "როგორ აღწერთ თქვენს საკომუნიკაციო სტილს?",
+    "questionText": "How do you feel about taking on a leadership role?",
     "options": [
       {
-        "text": "ძალიან კომუნიკაბელური, მიყვარს პრეზენტაციები და საუბარი.",
+        "text": "I actively seek out leadership opportunities.",
+        "order": 0,
         "value": 3,
-        "id": "comm_extrovert"
+        "id": "opt_seek_leadership"
       },
       {
-        "text": "კარგად ვურთიერთობ, მაგრამ მირჩევნია წერილობითი კომუნიკაცია.",
+        "text": "I'm comfortable leading when necessary, but prefer to contribute as part of a team.",
+        "order": 1,
         "value": 2,
-        "id": "comm_balanced"
+        "id": "opt_comfortable_leading"
       },
       {
-        "text": "ვურთიერთობ მხოლოდ აუცილებლობის შემთხვევაში, ვამჯობინებ ჩუმად მუშაობას.",
+        "text": "I prefer to follow instructions and support leaders.",
+        "order": 2,
         "value": 1,
-        "id": "comm_introvert"
+        "id": "opt_prefer_following"
       },
       {
-        "text": "მირჩევნია სხვები ურთიერთობდნენ ჩემს მაგივრად.",
+        "text": "I avoid leadership roles.",
+        "order": 3,
         "value": 0,
-        "id": "comm_avoid"
+        "id": "opt_avoid_leadership"
       }
     ],
     "careerImpacts": {
-      "software_engineer": 1.0,
-      "data_scientist": 0.8,
-      "project_manager": 2.2,
-      "ux_designer": 1.8,
-      "philologist": 1.5,
-      "marketing_specialist": 2.5,
-      "teacher": 2.0,
-      "artist": 0.5,
-      "freelance_developer": 1.0
-    }
+      "leadership": 0.9,
+      "teamwork": 0.6,
+      "responsibility": 0.7,
+      "autonomy": 0.5
+    },
+    "order": 11
   },
   {
-    "order": 12,
-    "questionText": "პრობლემის გადაჭრისას უფრო მეტად ეყრდნობით ლოგიკასა და ფაქტებს თუ ინტუიციას?",
+    "questionText": "Do you prefer routine tasks or a variety of tasks in your work?",
     "options": [
       {
-        "text": "ყოველთვის ლოგიკასა და მონაცემებს ვეყრდნობი.",
+        "text": "I prefer a clear routine and predictable tasks.",
+        "order": 0,
         "value": 3,
-        "id": "logic_high"
+        "id": "opt_clear_routine"
       },
       {
-        "text": "ლოგიკა მნიშვნელოვანია, მაგრამ ინტუიციასაც ვუსმენ.",
+        "text": "I enjoy a mix of routine and new challenges.",
+        "order": 1,
         "value": 2,
-        "id": "logic_medium"
+        "id": "opt_mix_routine_new"
       },
       {
-        "text": "უფრო მეტად ინტუიციას და გრძნობებს ვენდობი.",
+        "text": "I thrive on variety and constant new challenges.",
+        "order": 2,
         "value": 1,
-        "id": "intuition_high"
+        "id": "opt_thrive_variety"
       },
       {
-        "text": "ინტუიციით მიღებული გადაწყვეტილებები მირჩევნია.",
+        "text": "I get bored easily with repetitive tasks.",
+        "order": 3,
         "value": 0,
-        "id": "intuition_very_high"
+        "id": "opt_bored_repetitive"
       }
     ],
     "careerImpacts": {
-      "software_engineer": 2.0,
-      "data_scientist": 2.5,
-      "project_manager": 1.5,
-      "ux_designer": 1.0,
-      "philologist": 0.8,
-      "marketing_specialist": 1.2,
-      "teacher": 0.7,
-      "artist": 0.5,
-      "freelance_developer": 1.8
-    }
+      "stability": 0.8,
+      "adaptability": 0.7,
+      "innovation": 0.6,
+      "attention_to_detail": 0.5
+    },
+    "order": 12
   },
   {
-    "order": 13,
-    "questionText": "რამდენად გაინტერესებთ კარიერული ზრდა და ლიდერული პოზიციები?",
+    "questionText": "Which type of problems do you enjoy tackling most?",
     "options": [
       {
-        "text": "მუდმივად ვეძებ წინსვლისა და ლიდერობის შესაძლებლობებს.",
+        "text": "Abstract, theoretical problems.",
+        "order": 0,
         "value": 3,
-        "id": "growth_leader_high"
+        "id": "opt_abstract_theoretical"
       },
       {
-        "text": "დაინტერესებული ვარ ზრდით, მაგრამ ლიდერობა ჩემი მთავარი მიზანი არ არის.",
+        "text": "Practical, real-world problems with immediate solutions.",
+        "order": 1,
         "value": 2,
-        "id": "growth_medium"
+        "id": "opt_practical_real"
       },
       {
-        "text": "მირჩევნია სპეციალისტი ვიყო და ჩემს საქმეს ვაკეთო.",
+        "text": "Human-centered problems, involving people's needs.",
+        "order": 2,
         "value": 1,
-        "id": "specialist_pref"
+        "id": "opt_human_centered"
       },
       {
-        "text": "კარიერული წინსვლა ნაკლებად მაღელვებს, სტაბილურობა მირჩევნია.",
+        "text": "Problems that require artistic or aesthetic solutions.",
+        "order": 3,
         "value": 0,
-        "id": "stability_pref"
+        "id": "opt_artistic_aesthetic"
       }
     ],
     "careerImpacts": {
-      "software_engineer": 1.5,
-      "data_scientist": 1.2,
-      "project_manager": 2.5,
-      "ux_designer": 1.5,
-      "philologist": 0.8,
-      "marketing_specialist": 1.8,
-      "teacher": 1.5,
-      "artist": 0.5,
-      "freelance_developer": 1.0
-    }
+      "conceptual_thinking": 0.8,
+      "problem_solving": 0.7,
+      "empathy": 0.7,
+      "creativity": 0.6,
+      "technical_skills": 0.5
+    },
+    "order": 13
   },
   {
-    "order": 14,
-    "questionText": "როგორ უმკლავდებით მაღალ წნევასა და სტრესულ სიტუაციებს?",
+    "questionText": "What pace of work do you prefer?",
     "options": [
       {
-        "text": "კარგად ვმუშაობ ზეწოლის ქვეშ, მეტი სტიმულია.",
+        "text": "Fast-paced and high-energy.",
+        "order": 0,
         "value": 3,
-        "id": "pressure_thrive"
+        "id": "opt_fast_paced"
       },
       {
-        "text": "შემიძლია ზეწოლას გავუძლო, მაგრამ მირჩევნია მშვიდი გარემო.",
+        "text": "Moderate, with time for reflection.",
+        "order": 1,
         "value": 2,
-        "id": "pressure_handle"
+        "id": "opt_moderate_pace"
       },
       {
-        "text": "სტრესი მაფორიაქებს და მიჭირს კონცენტრირება.",
+        "text": "Slow and meticulous.",
+        "order": 2,
         "value": 1,
-        "id": "pressure_struggle"
+        "id": "opt_slow_meticulous"
       },
       {
-        "text": "ვცდილობ ნებისმიერი სტრესული სიტუაციისგან თავი შორს დავიჭირო.",
+        "text": "Flexible, with varying demands.",
+        "order": 3,
         "value": 0,
-        "id": "pressure_avoid"
+        "id": "opt_flexible_pace"
       }
     ],
     "careerImpacts": {
-      "software_engineer": 1.5,
-      "data_scientist": 1.0,
-      "project_manager": 2.0,
-      "ux_designer": 0.8,
-      "philologist": 0.5,
-      "marketing_specialist": 1.5,
-      "teacher": 1.5,
-      "artist": 0.5,
-      "freelance_developer": 1.0
-    }
+      "adaptability": 0.7,
+      "attention_to_detail": 0.6,
+      "efficiency": 0.5,
+      "stress_tolerance": 0.6
+    },
+    "order": 14
   },
   {
-    "order": 15,
-    "questionText": "რამდენად მნიშვნელოვანია თქვენთვის სხვების დახმარება ან მომსახურება თქვენს სამსახურში?",
+    "questionText": "What kind of impact do you want to make through your work?",
     "options": [
       {
-        "text": "ძალიან მნიშვნელოვანია, ეს ჩემი მოტივაციის მთავარი წყაროა.",
+        "text": "To create innovative products or services.",
+        "order": 0,
         "value": 3,
-        "id": "help_high"
+        "id": "opt_innovate_products"
       },
       {
-        "text": "მომწონს დახმარება, მაგრამ ეს არ არის ჩემი მთავარი მიზანი.",
+        "text": "To help individuals grow and develop.",
+        "order": 1,
         "value": 2,
-        "id": "help_medium"
+        "id": "opt_help_individuals"
       },
       {
-        "text": "მირჩევნია ფოკუსირება დავალებებზე და არა პირდაპირ დახმარებაზე.",
+        "text": "To improve systems and processes for efficiency.",
+        "order": 2,
         "value": 1,
-        "id": "help_low"
+        "id": "opt_improve_systems"
       },
       {
-        "text": "ჩემი სამუშაო არ უნდა მოიცავდეს სხვების დახმარებას.",
+        "text": "To contribute to scientific discovery or research.",
+        "order": 3,
         "value": 0,
-        "id": "help_none"
+        "id": "opt_scientific_discovery"
       }
     ],
     "careerImpacts": {
-      "software_engineer": 0.8,
-      "data_scientist": 0.7,
-      "project_manager": 1.5,
-      "ux_designer": 2.0,
-      "philologist": 1.0,
-      "marketing_specialist": 1.8,
-      "teacher": 3.0,
-      "artist": 0.5,
-      "freelance_developer": 0.5
-    }
+      "innovation": 0.8,
+      "social_impact": 0.7,
+      "efficiency": 0.6,
+      "research": 0.7,
+      "development": 0.6
+    },
+    "order": 15
   },
   {
-    "order": 16,
-    "questionText": "გირჩევნიათ განმეორებადი, რუტინული ამოცანები თუ მრავალფეროვანი, ცვალებადი სამუშაო?",
+    "questionText": "Which type of skills do you enjoy developing most?",
     "options": [
       {
-        "text": "მირჩევნია განმეორებადი ამოცანები, სადაც შემიძლია სპეციალიზირება.",
+        "text": "Technical and analytical skills.",
+        "order": 0,
         "value": 3,
-        "id": "repetitive_pref"
+        "id": "opt_technical_analytical"
       },
       {
-        "text": "ვეგუები განმეორებადობას, მაგრამ მრავალფეროვნებაც მომწონს.",
+        "text": "Interpersonal and communication skills.",
+        "order": 1,
         "value": 2,
-        "id": "balanced_tasks"
+        "id": "opt_interpersonal_comm"
       },
       {
-        "text": "მირჩევნია მრავალფეროვანი და ახალი ამოცანები ყოველდღე.",
+        "text": "Creative and artistic skills.",
+        "order": 2,
         "value": 1,
-        "id": "varied_pref"
+        "id": "opt_creative_artistic"
       },
       {
-        "text": "რუტინა მოსაწყენია, ყოველთვის ახალ გამოწვევებს ვეძებ.",
+        "text": "Organizational and planning skills.",
+        "order": 3,
         "value": 0,
-        "id": "novelty_high"
+        "id": "opt_organizational_planning"
       }
     ],
     "careerImpacts": {
-      "software_engineer": 1.0,
-      "data_scientist": 0.8,
-      "project_manager": 1.2,
-      "ux_designer": 1.8,
-      "philologist": 1.0,
-      "marketing_specialist": 1.5,
-      "teacher": 1.0,
-      "artist": 2.0,
-      "freelance_developer": 2.0
-    }
+      "technical_skills": 0.8,
+      "communication": 0.7,
+      "creativity": 0.7,
+      "organization": 0.6
+    },
+    "order": 16
   },
   {
-    "order": 17,
-    "questionText": "რამდენად კომფორტულად გრძნობთ თავს აბსტრაქტულ ცნებებთან და თეორიებთან მუშაობისას?",
+    "questionText": "How much autonomy do you prefer in your work?",
     "options": [
       {
-        "text": "ძალიან მომწონს აბსტრაქტული აზროვნება და თეორიული მოდელები.",
+        "text": "Complete autonomy, I prefer to manage my own projects.",
+        "order": 0,
         "value": 3,
-        "id": "abstract_high"
+        "id": "opt_complete_autonomy"
       },
       {
-        "text": "კომფორტულად ვგრძნობ თავს, თუ ეს პრაქტიკულ შედეგებთან არის დაკავშირებული.",
+        "text": "Significant autonomy, with guidance when needed.",
+        "order": 1,
         "value": 2,
-        "id": "abstract_medium"
+        "id": "opt_significant_autonomy"
       },
       {
-        "text": "მირჩევნია კონკრეტულ და ხელშესახებ ამოცანებზე მუშაობა.",
+        "text": "Moderate autonomy, I work best with clear direction.",
+        "order": 2,
         "value": 1,
-        "id": "concrete_pref"
+        "id": "opt_moderate_autonomy"
       },
       {
-        "text": "აბსტრაქტული ცნებები მიჭირს და ვერიდები მათ.",
+        "text": "Minimal autonomy, I prefer to follow instructions.",
+        "order": 3,
         "value": 0,
-        "id": "abstract_avoid"
+        "id": "opt_minimal_autonomy"
       }
     ],
     "careerImpacts": {
-      "software_engineer": 1.8,
-      "data_scientist": 2.0,
-      "project_manager": 0.8,
-      "ux_designer": 1.2,
-      "philologist": 2.0,
-      "marketing_specialist": 0.8,
-      "teacher": 1.0,
-      "artist": 1.0,
-      "freelance_developer": 1.5
-    }
+      "autonomy": 0.9,
+      "leadership": 0.7,
+      "independence": 0.8,
+      "structure_preference": 0.6
+    },
+    "order": 17
   },
   {
-    "order": 18,
-    "questionText": "გირჩევნიათ სამუშაო, რომელიც ძირითადად ფიზიკურ აქტივობას მოითხოვს თუ გონებრივს?",
+    "questionText": "How do you prefer to receive feedback on your work?",
     "options": [
       {
-        "text": "მკაცრად ფიზიკური აქტივობის შემცველი სამუშაო მირჩევნია.",
+        "text": "Direct and constructive, even if critical.",
+        "order": 0,
         "value": 3,
-        "id": "physical_pref"
+        "id": "opt_direct_constructive"
       },
       {
-        "text": "მომწონს ბალანსი ფიზიკურსა და გონებრივ შრომას შორის.",
+        "text": "Supportive and encouraging, with suggestions for improvement.",
+        "order": 1,
         "value": 2,
-        "id": "balanced_work"
+        "id": "opt_supportive_encouraging"
       },
       {
-        "text": "მირჩევნია უპირატესად გონებრივი სამუშაო, მინიმალური ფიზიკური დატვირთვით.",
+        "text": "Formal, structured performance reviews.",
+        "order": 2,
         "value": 1,
-        "id": "mental_pref"
+        "id": "opt_formal_reviews"
       },
       {
-        "text": "მკაცრად გონებრივი სამუშაო, სადაც თითქმის არ არის ფიზიკური დატვირთვა.",
+        "text": "I prefer to evaluate my own work.",
+        "order": 3,
         "value": 0,
-        "id": "mental_high"
+        "id": "opt_self_evaluate"
       }
     ],
     "careerImpacts": {
-      "software_engineer": 0.2,
-      "data_scientist": 0.1,
-      "project_manager": 0.5,
-      "ux_designer": 0.5,
-      "philologist": 0.8,
-      "marketing_specialist": 0.3,
-      "teacher": 0.7,
-      "artist": 1.0,
-      "freelance_developer": 0.2
-    }
+      "self_awareness": 0.7,
+      "growth_mindset": 0.8,
+      "adaptability": 0.6,
+      "independence": 0.5
+    },
+    "order": 18
   },
   {
-    "order": 19,
-    "questionText": "რამდენად მოგწონთ ენასთან, ტექსტებთან და წერილობით კომუნიკაციასთან მუშაობა?",
+    "questionText": "What does 'career growth' mean to you?",
     "options": [
       {
-        "text": "ძალიან მომწონს ტექსტების რედაქტირება, წერა და ენის ანალიზი.",
+        "text": "Advancing into leadership or management positions.",
+        "order": 0,
         "value": 3,
-        "id": "language_high"
+        "id": "opt_leadership_growth"
       },
       {
-        "text": "მომწონს, როცა ჩემი სამუშაო მოიცავს წერასა და კითხვას.",
+        "text": "Becoming a highly specialized expert in my field.",
+        "order": 1,
         "value": 2,
-        "id": "language_medium"
+        "id": "opt_expert_growth"
       },
       {
-        "text": "მირჩევნია რიცხვებთან ან ვიზუალურ მასალასთან მუშაობა.",
+        "text": "Continuously learning new skills and technologies.",
+        "order": 2,
         "value": 1,
-        "id": "non_language_pref"
+        "id": "opt_learning_growth"
       },
       {
-        "text": "ენასთან მუშაობა არ არის ჩემი ძლიერი მხარე.",
+        "text": "Increasing my salary and benefits.",
+        "order": 3,
         "value": 0,
-        "id": "language_avoid"
+        "id": "opt_salary_growth"
       }
     ],
     "careerImpacts": {
-      "software_engineer": 0.5,
-      "data_scientist": 0.3,
-      "project_manager": 1.0,
-      "ux_designer": 1.2,
-      "philologist": 3.0,
-      "marketing_specialist": 2.0,
-      "teacher": 1.8,
-      "artist": 1.0,
-      "freelance_developer": 0.8
-    }
+      "ambition": 0.8,
+      "specialization": 0.7,
+      "continuous_learning": 0.9,
+      "financial_drive": 0.6
+    },
+    "order": 19
   }
 ]

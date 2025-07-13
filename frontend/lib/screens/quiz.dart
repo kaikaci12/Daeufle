@@ -140,7 +140,7 @@ class _QuizScreenState extends State<QuizScreen> {
         : null;
 
     return Scaffold(
-      appBar: AppBar(title: const Text("კარიერის ქვიზი"), centerTitle: true),
+      appBar: AppBar(title: const Text("Career Quiz"), centerTitle: true),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(20.0),

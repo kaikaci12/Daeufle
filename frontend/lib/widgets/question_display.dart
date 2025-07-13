@@ -73,7 +73,6 @@ class QuestionDisplayWidget extends StatelessWidget {
                 child: InkWell(
                   // Use InkWell for tap feedback
                   onTap: () {
-                    // Pass question['id'] and option['id']
                     onOptionSelected(currentQuestionId, option['id'] as String);
                   },
                   borderRadius: BorderRadius.circular(10),
@@ -111,7 +110,7 @@ class QuestionDisplayWidget extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                 ),
               ),
-              child: const Text("წინა", style: TextStyle(fontSize: 16)),
+              child: const Text("Previous", style: TextStyle(fontSize: 16)),
             ),
             ElevatedButton(
               onPressed: onNextQuestion, // Use the passed callback directly
@@ -126,8 +125,8 @@ class QuestionDisplayWidget extends StatelessWidget {
               ),
               child: Text(
                 isLastQuestion
-                    ? "დასრულება"
-                    : "შემდეგი", // Text based on isLastQuestion
+                    ? "Finish"
+                    : "Next", // Text based on isLastQuestion
                 style: const TextStyle(fontSize: 16),
               ),
             ),
