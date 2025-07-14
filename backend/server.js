@@ -2,22 +2,22 @@ require("dotenv").config();
 
 const cors = require("cors"); // Import cors package
 
-
 const PORT = process.env.PORT || 5000;
-
-
 
 const express = require("express");
 const admin = require("firebase-admin");
-
-const { getGeminiResponse } = require("./helpers/getGeminiResponse");
-
-const path = process.env.SERVICE_ACCOUNT_PATH || './serviceAccountKey.json';
+const { GoogleGenerativeAI } = require("@google/generative-ai");
+const geminiApiKey = process.env.GEMINI_API_KEY;
+if (!geminiApiKey) {
+  console.error("CRITICAL ERROR: GEMINI_API_KEY environment variable not set.");
+}
+const genAI = new GoogleGenerativeAI(geminiApiKey);
+const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+const getGeminiResponse = require("./helpers/getGeminiResponse");
 
 admin.initializeApp({
-  credential: admin.credential.cert(require(path)),
+  credential: admin.credential.cert(require("./serviceAccountKey.json")),
 });
-
 const verifyFirebaseToken = async (req, res, next) => {
   const authHeader = req.headers.authorization;
   if (!authHeader || !authHeader.startsWith("Bearer ")) {
@@ -116,7 +116,7 @@ app.post("/api/quiz/analyze", verifyFirebaseToken, async (req, res) => {
 
   // Gemini API call and response handling - this block must be OUTSIDE the for loop
   try {
-    const result = await getGeminiResponse(prompt); // Pass prompt to the function
+    const result = await getGeminiResponse(prompt, model); // Pass prompt to the function
     const geminiResponse = result; // getGeminiResponse now returns the response object directly
     const responseText = geminiResponse.text();
 
