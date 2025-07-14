@@ -6,14 +6,18 @@ const cors = require("cors"); // Import cors package
 const PORT = process.env.PORT || 5000;
 
 
+
 const express = require("express");
 const admin = require("firebase-admin");
 
 const { getGeminiResponse } = require("./helpers/getGeminiResponse");
 
+const path = process.env.SERVICE_ACCOUNT_PATH || './serviceAccountKey.json';
+
 admin.initializeApp({
-  credential: admin.credential.cert(require('./serviceAccountKey.json')),
+  credential: admin.credential.cert(require(path)),
 });
+
 const verifyFirebaseToken = async (req, res, next) => {
   const authHeader = req.headers.authorization;
   if (!authHeader || !authHeader.startsWith("Bearer ")) {
