@@ -20,8 +20,7 @@ class AnalyzeResults extends StatefulWidget {
 class _AnalyzeResultsState extends State<AnalyzeResults>
     with TickerProviderStateMixin {
   late final AnimationController _controller;
-  late Future<Map<String, dynamic>>
-  _resultsFuture; // Changed to non-nullable Future
+  late Future<Map<String, dynamic>> _resultsFuture;
 
   @override
   void initState() {
@@ -32,13 +31,13 @@ class _AnalyzeResultsState extends State<AnalyzeResults>
     );
     _controller.repeat();
 
-    _resultsFuture = _sendAnswersToBackend(); // Initialize the future once
+    _resultsFuture = _sendAnswersToBackend();
   }
 
   Future<Map<String, dynamic>> _sendAnswersToBackend() async {
     try {
       final Uri apiUrl = Uri.parse(
-        'http://localhost:5000/api/quiz/analyze',
+        "https://daufle-server.onrender.com/api/quiz/analyze",
       ); // Example backend URL
       final User? user = FirebaseAuth.instance.currentUser;
       if (user == null) {
@@ -46,6 +45,7 @@ class _AnalyzeResultsState extends State<AnalyzeResults>
       }
       final String? idToken = await user.getIdToken();
       if (idToken == null) {
+        print("id toke is null");
         throw Exception(
           "Failed to get user ID token. Cannot analyze quiz results.",
         );
@@ -108,7 +108,6 @@ class _AnalyzeResultsState extends State<AnalyzeResults>
                     Lottie.asset(
                       "assets/analyze-animation.json",
                       controller: _controller,
-
                       width: 200,
                       height: 200,
                       fit: BoxFit.contain,
@@ -145,11 +144,15 @@ class _AnalyzeResultsState extends State<AnalyzeResults>
               } else if (snapshot.hasData) {
                 final Map<String, dynamic> data = snapshot.data!;
 
-                print(data["suitableCourses"]);
+                print('suitable Courses: ${data["suitableCourses"]}');
 
+                // FIX: Explicitly cast to List<dynamic> and then filter/map
                 final List<Map<String, dynamic>> coursesData =
                     (data["suitableCourses"] as List<dynamic>?)
-                        ?.map((e) => e as Map<String, dynamic>)
+                        ?.whereType<
+                          Map<String, dynamic>
+                        >() // Filter out non-map elements
+                        .map((e) => e as Map<String, dynamic>)
                         .toList() ??
                     [];
 
@@ -171,8 +174,6 @@ class _AnalyzeResultsState extends State<AnalyzeResults>
                       ),
                       textAlign: TextAlign.center,
                     ),
-                    const SizedBox(height: 20),
-                    Text(data["professionIds"] ?? "no profession ids"),
                     const SizedBox(height: 20),
                     ElevatedButton(
                       onPressed: () {

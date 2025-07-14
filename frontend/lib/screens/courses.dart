@@ -79,11 +79,10 @@ class Courses extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () {
                     // Navigate to QuizScreen and clear all previous routes
-                    Navigator.of(context).pushAndRemoveUntil(
+                    Navigator.of(context).pushReplacement(
                       MaterialPageRoute(
                         builder: (context) => const QuizScreen(),
                       ),
-                      (Route<dynamic> route) => false,
                     );
                   },
                   style: ElevatedButton.styleFrom(

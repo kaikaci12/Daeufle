@@ -95,9 +95,7 @@ class _CourseState extends State<Course> {
     final String description =
         widget.courseData['description'] ?? 'No description available.';
     final String provider = widget.courseData['provider'] ?? 'N/A';
-    final String imageUrl =
-        widget.courseData['imageUrl'] ??
-        'https://placehold.co/600x400/cccccc/000000?text=No+Image'; // Placeholder
+    final String imageUrl = 'assets/app-watermark.jpg'; // Placeholder
     final List<dynamic> associatedProfessionIds =
         widget.courseData['associatedProfessionIds'] ?? [];
     final double averageRating =
@@ -106,7 +104,9 @@ class _CourseState extends State<Course> {
     final String courseId =
         widget.courseData['id']
             as String; // Get course ID for ratings sub-collection
+    double width = MediaQuery.of(context).size.width;
 
+    double imageWidth = width * 0.7;
     return Scaffold(
       appBar: AppBar(title: Text(title), centerTitle: true),
       body: SingleChildScrollView(
@@ -119,7 +119,7 @@ class _CourseState extends State<Course> {
               borderRadius: BorderRadius.circular(12.0),
               child: Image.network(
                 imageUrl,
-                width: double.infinity,
+                width: imageWidth,
                 height: 200,
                 fit: BoxFit.cover,
                 errorBuilder: (context, error, stackTrace) => Container(

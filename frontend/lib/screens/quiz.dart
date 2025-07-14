@@ -3,6 +3,7 @@ import 'package:Daeufle/widgets/question_display.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:Daeufle/constants/colors.dart';
+import 'dart:io' show Platform;
 
 class QuizScreen extends StatefulWidget {
   const QuizScreen({super.key});
@@ -145,13 +146,7 @@ class _QuizScreenState extends State<QuizScreen> {
         centerTitle: true,
         leading: Row(
           children: [
-            IconButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              icon: Icon(Icons.arrow_back),
-            ),
-            Image.asset("assets/images/tbc-logo.png"),
+            Image.asset("assets/images/tbc-logo.png", fit: BoxFit.contain),
           ],
         ),
       ),

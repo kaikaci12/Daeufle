@@ -2,35 +2,21 @@ require("dotenv").config();
 
 const cors = require("cors"); // Import cors package
 
-const serviceAccountCredentials =
-  process.env.FIREBASE_SERVICE_ACCOUNT_CREDENTIALS;
-
-if (!serviceAccountCredentials) {
-  console.error(
-    "CRITICAL ERROR: FIREBASE_SERVICE_ACCOUNT_CREDENTIALS environment variable not set."
-  );
-  process.exit(1);
-}
-
-let serviceAccount;
-try {
-  // Parse the JSON string from the environment variable
-  serviceAccount = JSON.parse(serviceAccountCredentials);
-} catch (error) {
-  console.error(
-    `CRITICAL ERROR: Could not parse service account credentials from environment variable. Please check its format.`,
-    error
-  );
-  process.exit(1);
-}
+const PORT = process.env.PORT || 5000;
 
 const express = require("express");
 const admin = require("firebase-admin");
-
-const { getGeminiResponse } = require("./helpers/getGeminiResponse");
+const { GoogleGenerativeAI } = require("@google/generative-ai");
+const geminiApiKey = process.env.GEMINI_API_KEY;
+if (!geminiApiKey) {
+  console.error("CRITICAL ERROR: GEMINI_API_KEY environment variable not set.");
+}
+const genAI = new GoogleGenerativeAI(geminiApiKey);
+const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+const getGeminiResponse = require("./helpers/getGeminiResponse");
 
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
+  credential: admin.credential.cert(require("./serviceAccountKey.json")),
 });
 const verifyFirebaseToken = async (req, res, next) => {
   const authHeader = req.headers.authorization;
@@ -130,7 +116,7 @@ app.post("/api/quiz/analyze", verifyFirebaseToken, async (req, res) => {
 
   // Gemini API call and response handling - this block must be OUTSIDE the for loop
   try {
-    const result = await getGeminiResponse(prompt); // Pass prompt to the function
+    const result = await getGeminiResponse(prompt, model); // Pass prompt to the function
     const geminiResponse = result; // getGeminiResponse now returns the response object directly
     const responseText = geminiResponse.text();
 
@@ -201,6 +187,6 @@ app.post("/api/quiz/analyze", verifyFirebaseToken, async (req, res) => {
   }
 });
 
-app.listen(5000, () => {
-  console.log("app is listening on port", 5000);
+app.listen(PORT, () => {
+  console.log("app is listening on port", PORT);
 });

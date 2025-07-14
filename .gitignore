@@ -28,10 +28,10 @@ migrate_working_dir/
 # ---------------------------------------------------
 
 # Node.js backend specific ignores
-/backend/node_modules/      # Essential: Don't commit installed packages
-/backend/.env               # CRITICAL: Contains API keys and secrets
-/backend/serviceAccountKey.json # CRITICAL: Firebase Admin credentials
-/backend/npm-debug.log      # npm logs
+/backend/node_modules/      
+/backend/.env              
+/backend/serviceAccountKey.json 
+/backend/npm-debug.log     
 
 # ---------------------------------------------------
 
