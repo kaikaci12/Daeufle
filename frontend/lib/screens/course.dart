@@ -106,7 +106,6 @@ class _CourseState extends State<Course> {
             as String; // Get course ID for ratings sub-collection
     double width = MediaQuery.of(context).size.width;
 
-    double imageWidth = width * 0.7;
     return Scaffold(
       appBar: AppBar(title: Text(title), centerTitle: true),
       body: SingleChildScrollView(
@@ -117,9 +116,9 @@ class _CourseState extends State<Course> {
             // Course Image
             ClipRRect(
               borderRadius: BorderRadius.circular(12.0),
-              child: Image.network(
+              child: Image.asset(
                 imageUrl,
-                width: imageWidth,
+                width: width > 1000 ? width : double.infinity,
                 height: 200,
                 fit: BoxFit.cover,
                 errorBuilder: (context, error, stackTrace) => Container(

@@ -3,6 +3,7 @@ import 'package:Daeufle/screens/welcome.dart';
 import 'package:Daeufle/services/auth_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:Daeufle/screens/quiz.dart'; // Import the QuizScreen
+import 'dart:io' show Platform;
 
 class Courses extends StatelessWidget {
   final List<Map<String, dynamic>> coursesData;
@@ -18,6 +19,7 @@ class Courses extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AuthManager _authManager = AuthManager();
+
     // Prevent navigating back from this screen
     return WillPopScope(
       onWillPop: () async =>
@@ -64,7 +66,7 @@ class Courses extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Your Career Recommendation: ${careerRecommendation}",
+                careerRecommendation,
                 style: const TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
