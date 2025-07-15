@@ -124,10 +124,16 @@ class _CheckEmailScreenState extends State<CheckEmailScreen> {
             ),
             const SizedBox(height: 20),
             const Text(
-              'Please check your inbox and spam folder. Click the link in the email to verify your account.',
+              ' Click the link in the email to verify your account',
               textAlign: TextAlign.center,
               style: TextStyle(color: AppColors.white, fontSize: 16),
             ),
+            const Text(
+              'If you do not see the email Please check your Spam folder',
+              textAlign: TextAlign.center,
+              style: TextStyle(color: AppColors.white, fontSize: 16),
+            ),
+
             const SizedBox(height: 40),
             ElevatedButton.icon(
               onPressed: _isResending ? null : _resendVerificationEmail,

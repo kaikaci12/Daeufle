@@ -30,7 +30,7 @@ class Courses extends StatelessWidget {
           centerTitle: true,
           automaticallyImplyLeading:
               false, // Hide the back button in the AppBar
-          leading: Image.asset("assets/images/tbc-logo.png"),
+
           actions: [
             Row(
               children: [
@@ -70,9 +70,8 @@ class Courses extends StatelessWidget {
                 style: const TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  color: Colors.deepPurple,
                 ),
-                textAlign: TextAlign.center,
+                textAlign: TextAlign.start,
               ),
               const SizedBox(height: 20),
 

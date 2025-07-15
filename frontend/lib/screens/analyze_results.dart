@@ -61,13 +61,19 @@ class _AnalyzeResultsState extends State<AnalyzeResults>
 
       if (response.statusCode == 200) {
         return jsonDecode(response.body) as Map<String, dynamic>;
+      } else if (response.statusCode == 503) {
+        throw Exception(
+          'Our service is currently busy. Please try again in a moment!',
+        );
       } else {
         throw Exception(
           'Failed to load results from backend: ${response.statusCode} - ${response.body}',
         );
       }
     } catch (e) {
-      throw Exception('Failed to connect to backend or process results: $e');
+      throw Exception(
+        'Our service is currently busy. Please try again in a moment!',
+      );
     }
   }
 
@@ -83,7 +89,6 @@ class _AnalyzeResultsState extends State<AnalyzeResults>
       appBar: AppBar(
         title: const Text("Results AI Analysis"),
         centerTitle: true,
-        leading: Image.asset("assets/images/tbc-logo.png"),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0), // Consistent padding

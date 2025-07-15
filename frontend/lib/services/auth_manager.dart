@@ -88,4 +88,17 @@ class AuthManager {
       return e.toString();
     }
   }
+
+  Future<String?> sendPasswordResetLink(email) async {
+    try {
+      await _auth.sendPasswordResetEmail(email: email);
+
+      return null;
+    } on FirebaseException catch (e) {
+      return e.message ??
+          "Uknown error occured during sending password reset link";
+    } catch (e) {
+      return e.toString();
+    }
+  }
 }

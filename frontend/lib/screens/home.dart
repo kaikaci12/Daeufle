@@ -38,19 +38,7 @@ class Home extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        leading: GestureDetector(
-          onTap: () {
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) {
-                  return Home();
-                },
-              ),
-            );
-          },
-          child: Image.asset("assets/images/tbc-logo.png"),
-        ),
-
+        leading: Icon(Icons.person),
         title: LoadUserData(),
         actions: [
           Row(
@@ -59,7 +47,6 @@ class Home extends StatelessWidget {
               SizedBox(width: 20),
               IconButton(
                 icon: Icon(Icons.logout),
-
                 onPressed: () async {
                   String? error = await _authManager.signOut();
                   if (error == null) {
@@ -80,21 +67,15 @@ class Home extends StatelessWidget {
           ),
         ],
       ),
-      endDrawer: const Drawer(
-        child: Column(
-          children: [
-            DrawerHeader(child: Text("App Drawer")),
-            // Add other drawer items here
-          ],
-        ),
-      ),
+
       body: Padding(
         padding: EdgeInsetsGeometry.all(20),
         child: Column(
           children: [
             Text(
               "Before we move on to the courses, let's first take a career test",
-              style: TextStyle(fontSize: 20),
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              textAlign: TextAlign.center,
             ),
             SizedBox(height: 20),
             ElevatedButton(

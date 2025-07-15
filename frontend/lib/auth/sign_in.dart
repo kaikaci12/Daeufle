@@ -1,6 +1,7 @@
 // lib/screens/sign_in_screen.dart
 import 'dart:math';
 
+import 'package:Daeufle/auth/forgot_password.dart';
 import 'package:Daeufle/constants/colors.dart'; // Adjust import path if 'colors.dart' is in a different place
 import 'package:Daeufle/main.dart';
 import 'package:Daeufle/screens/home.dart';
@@ -222,8 +223,13 @@ class _SignInScreenState extends State<SignInScreen> {
                         alignment: Alignment.centerRight,
                         child: TextButton(
                           onPressed: () {
-                            print('Forgot Password clicked!');
-                            // Navigate to forgot password screen
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return ForgotPassword();
+                                },
+                              ),
+                            );
                           },
                           child: Text(
                             'Forgot Password?',

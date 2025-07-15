@@ -27,11 +27,6 @@ class WelcomePage extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Image.asset(
-                          "assets/images/tbc-logo.png",
-                          width: 100,
-                          height: 100,
-                        ),
                         SizedBox(height: 30),
                         Text(
                           'Welcome To',
@@ -73,12 +68,12 @@ class WelcomePage extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => SignUpScreen()),
+                        MaterialPageRoute(builder: (context) => SignInScreen()),
                       );
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white,
-                      foregroundColor: AppColors.deepPurple,
+
                       padding: EdgeInsets.symmetric(
                         horizontal: 48,
                         vertical: 16,
@@ -93,7 +88,6 @@ class WelcomePage extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
-                        color: AppColors.deepPurple,
                       ),
                     ),
                   ),

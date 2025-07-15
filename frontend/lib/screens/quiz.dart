@@ -141,15 +141,7 @@ class _QuizScreenState extends State<QuizScreen> {
         : null;
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Career Quiz"),
-        centerTitle: true,
-        leading: Row(
-          children: [
-            Image.asset("assets/images/tbc-logo.png", fit: BoxFit.contain),
-          ],
-        ),
-      ),
+      appBar: AppBar(title: const Text("Career Quiz"), centerTitle: true),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
