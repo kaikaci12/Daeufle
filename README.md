@@ -1,6 +1,6 @@
 
 
- <img src="https://drive.google.com/file/d/1GlldTvT1hpofoFPnID4eQ-bgGCHWXBTt/view?usp=sharing" width="350" title="hover text">
+ <img src="https://drive.google.com/file/d/1GlldTvT1hpofoFPnID4eQ-bgGCHWXBTt/view?usp=sharing" width="350"/>
 
 
 🚀 Daeufle - Career Assessment Platform
