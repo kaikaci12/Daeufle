@@ -1,0 +1,53 @@
+🚀 Daeufle - Career Assessment Platform
+Daeufle is a full-stack mobile/web application designed to empower users in discovering their ideal career paths. It leverages AI-powered assessments to analyze user preferences and skills, providing personalized course recommendations from major platforms like Udemy and edX.
+
+✨ Key Features
+🎯 Career Assessment System:
+
+Interactive questionnaire designed to analyze user preferences and skills.
+
+Integration with the GEMINI API for intelligent and insightful career analysis.
+
+📚 Course Recommendations:
+
+Personalized course suggestions tailored to assessment results.
+
+Direct integration with major online learning platforms (Udemy, edX).
+
+User ratings and reviews system to help others make informed decisions.
+
+Direct links to recommended courses for easy access.
+
+⚙️ Technical Stack
+Frontend: 💻
+Mobile Framework: Flutter
+
+UI Components: Custom Flutter widgets with a modern and responsive design.
+
+Navigation: Robust Flutter navigation system for seamless user experience.
+
+Backend: 🗄️
+API: Node.js/Express for a scalable and efficient backend.
+
+Database: Firebase Firestore for real-time data storage and synchronization.
+
+Authentication: Firebase Authentication for secure user management.
+
+📸 Screenshots
+Here are some screenshots showcasing the Daeufle application:
+
+
+Course Detail Page:
+(Placeholder for: Screenshot_20250715_195745-portrait.png)
+
+Combined Introduction Image:
+(Placeholder for: daeufle-app.png)
+
+🔗 Links
+Web Application Live Demo: https://daeufle.firebaseapp.com/
+
+Mobile Application APK: https://lnkd.in/e_NYWw4i
+
+GitHub Repository: https://github.com/kaikaci12/Daeufle
+
+This project showcases my skills in full-stack development, mobile application development with Flutter, backend services with Node.js/Express and Firebase, and AI integration using the Gemini API. I'm open to collaborations and feedback!
