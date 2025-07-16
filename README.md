@@ -35,8 +35,8 @@ Authentication: Firebase Authentication for secure user management.
 
 📸 Screenshots
 Here is the introduction image showcasing the Daeufle application:
+![Alt text](https://drive.google.com/uc?export=view&id=1GlldTvT1hpofoFPnID4eQ-bgGCHWXBTt)
 
-![Alt text](https://drive.google.com/file/d/1GlldTvT1hpofoFPnID4eQ-bgGCHWXBTt/view)
 
 🔗 Links
 Web Application Live Demo: https://daeufle.firebaseapp.com/
