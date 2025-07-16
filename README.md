@@ -42,7 +42,7 @@ Combined Introduction Image:
 🔗 Links
 Web Application Live Demo: https://daeufle.firebaseapp.com/
 
-Mobile Application APK: https://lnkd.in/e_NYWw4i
+Mobile Application APK: https://drive.google.com/file/d/17vlfVXbElcSaWmS-Yh077l29ItrdHA4N/view?usp=sharing
 
 GitHub Repository: https://github.com/kaikaci12/Daeufle
 
