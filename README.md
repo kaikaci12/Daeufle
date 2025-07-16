@@ -1,3 +1,8 @@
+
+
+ <img src="https://drive.google.com/file/d/1GlldTvT1hpofoFPnID4eQ-bgGCHWXBTt/view?usp=sharing" width="350" title="hover text">
+
+
 🚀 Daeufle - Career Assessment Platform
 Daeufle is a full-stack mobile/web application designed to empower users in discovering their ideal career paths. It leverages AI-powered assessments to analyze user preferences and skills, providing personalized course recommendations from major platforms like Udemy and edX.
 
@@ -22,6 +27,7 @@ Direct links to recommended courses for easy access.
 Frontend: 💻
 Mobile Framework: Flutter
 
+
 UI Components: Custom Flutter widgets with a modern and responsive design.
 
 Navigation: Robust Flutter navigation system for seamless user experience.
@@ -33,8 +39,7 @@ Database: Firebase Firestore for real-time data storage and synchronization.
 
 Authentication: Firebase Authentication for secure user management.
 
-📸 Screenshots
-Here are some screenshots showcasing the Daeufle application:
+
 
 
 Course Detail Page:
